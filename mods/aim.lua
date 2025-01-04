@@ -1,5 +1,5 @@
-local Players = game:GetService("Players")
-local Player = game:GetService("Players").LocalPlayer
+local Players = game.Players or game:GetService("Players") or game:FindService("Players")
+local Player = Players.LocalPlayer
 local Character = Player.Character
 local Humanoid = Character.Humanoid
 local RunService = game:GetService("RunService")
