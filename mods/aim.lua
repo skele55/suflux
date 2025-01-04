@@ -1,3 +1,4 @@
+local Players = game:GetService("Players")
 local Player = game:GetService("Players").LocalPlayer
 local Character = Player.Character
 local Humanoid = Character.Humanoid
