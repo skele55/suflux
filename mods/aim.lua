@@ -32,17 +32,17 @@ function GetClosestCharacter()
 end		
 
 _G.aims.con = RunService.RenderStepped:Connect(function()
-	local closestvic = GetClosestCharacter()
+		local closestvic = GetClosestCharacter()
 
-	if closestvic then
-		local aimPart = closestvic[partToAimAt]
-		local _, OnScreen = workspace.CurrentCamera:WorldToScreenPoint(aimPart.Position)
+		if closestvic then
+			local aimPart = closestvic[partToAimAt]
+			local _, OnScreen = workspace.CurrentCamera:WorldToScreenPoint(aimPart.Position)
 
-		if OnScreen then
-			if #workspace.CurrentCamera:GetPartsObscuringTarget({workspace.CurrentCamera.CFrame.Position,aimPart.Position},{aimPart}) == 0 then
-    	   		local pos = workspace.CurrentCamera.CFrame.Position
+			if OnScreen then
+				if #workspace.CurrentCamera:GetPartsObscuringTarget({workspace.CurrentCamera.CFrame.Position,aimPart.Position},{aimPart}) == 0 then
+    	   			local pos = workspace.CurrentCamera.CFrame.Position
 				workspace.CurrentCamera.CFrame = workspace.CurrentCamera.CFrame:Lerp(CFrame.lookAt(pos, aimPart.Position), 0.1)
-    		end
+    			end
 		end
 	end
 end)
